@@ -1,0 +1,63 @@
+<section id="events" class="events-section">
+    <div class="container mx-auto px-4">
+        <div class="section-header">
+            <h2 class="section-title">ÉVÉNEMENTS</h2>
+            <div class="title-underline"></div>
+        </div>
+
+        <div class="timeline-container">
+            <div class="timeline-line"></div>
+
+            <div class="event-item" *ngFor="let event of events; let i = index" [class.left]="i % 2 === 0"
+                [class.right]="i % 2 === 1" [class.active]="activeEvents[i]">
+                <div class="event-content">
+                    <div class="event-date">
+                        <span class="day">{{ event.date.day }}</span>
+                        <span class="month">{{ event.date.month }}</span>
+                        <span class="year">{{ event.date.year }}</span>
+                    </div>
+
+                    <div class="event-info">
+                        <h3 class="event-title">{{ event.title }}</h3>
+                        <p class="event-location">📍 {{ event.location }}</p>
+                        <p class="event-description">{{ event.description }}</p>
+
+                        <div class="event-details">
+                            <span class="event-time">🕐 {{ event.time }}</span>
+                            <span class="event-price">💰 {{ event.price }}</span>
+                        </div>
+
+                        <button class="event-btn" (click)="bookEvent(event)">
+                            <span class="btn-text">RÉSERVER</span>
+                            <div class="btn-explosion"></div>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="event-marker">
+                    <div class="marker-inner"></div>
+                    <div class="marker-pulse"></div>
+                </div>
+
+                <div class="event-splash"></div>
+            </div>
+        </div>
+
+        <div class="news-section">
+            <h3 class="news-title">ACTUALITÉS</h3>
+            <div class="news-grid">
+                <div class="news-card" *ngFor="let news of newsItems">
+                    <div class="news-header">
+                        <span class="news-date">{{ news.date }}</span>
+                        <span class="news-category">{{ news.category }}</span>
+                    </div>
+                    <h4 class="news-headline">{{ news.headline }}</h4>
+                    <p class="news-content">{{ news.content }}</p>
+                    <div class="news-tags">
+                        <span class="news-tag" *ngFor="let tag of news.tags">#{{ tag }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

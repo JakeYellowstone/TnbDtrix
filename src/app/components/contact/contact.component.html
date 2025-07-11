@@ -1,0 +1,121 @@
+<section id="contact" class="contact-section">
+    <div class="container mx-auto px-4">
+        <div class="section-header">
+            <h2 class="section-title">CONTACT</h2>
+            <div class="title-underline"></div>
+        </div>
+
+        <div class="contact-content">
+            <div class="contact-form-container">
+                <form class="contact-form" (ngSubmit)="submitForm()" #contactForm="ngForm">
+                    <div class="form-group">
+                        <label for="name" class="form-label">NOM</label>
+                        <input type="text" id="name" name="name" class="form-input" [(ngModel)]="formData.name" required
+                            (focus)="onInputFocus('name')" (blur)="onInputBlur('name')">
+                        <div class="input-graffiti" [class.active]="activeInputs.name"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">EMAIL</label>
+                        <input type="email" id="email" name="email" class="form-input" [(ngModel)]="formData.email"
+                            required (focus)="onInputFocus('email')" (blur)="onInputBlur('email')">
+                        <div class="input-graffiti" [class.active]="activeInputs.email"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject" class="form-label">SUJET</label>
+                        <select id="subject" name="subject" class="form-input" [(ngModel)]="formData.subject" required
+                            (focus)="onInputFocus('subject')" (blur)="onInputBlur('subject')">
+                            <option value="">Choisir un sujet</option>
+                            <option value="booking">💼 Booking</option>
+                            <option value="collab">🎵 Collaboration</option>
+                            <option value="interview">🎤 Interview</option>
+                            <option value="fan">❤️ Fan Mail</option>
+                            <option value="business">📈 Business</option>
+                            <option value="other">🔥 Autre</option>
+                        </select>
+                        <div class="input-graffiti" [class.active]="activeInputs.subject"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" class="form-label">MESSAGE</label>
+                        <textarea id="message" name="message" class="form-input form-textarea" rows="5"
+                            [(ngModel)]="formData.message" required (focus)="onInputFocus('message')"
+                            (blur)="onInputBlur('message')" placeholder="Ecris ton message ici..."></textarea>
+                        <div class="input-graffiti" [class.active]="activeInputs.message"></div>
+                    </div>
+
+                    <button type="submit" class="submit-btn" [disabled]="!contactForm.valid">
+                        <span class="btn-text">ENVOYER</span>
+                        <div class="btn-spray" [class.active]="isSubmitting"></div>
+                    </button>
+                </form>
+            </div>
+
+            <div class="contact-info">
+                <div class="info-card">
+                    <h3 class="info-title">RÉSEAUX SOCIAUX</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link instagram">
+                            <span class="social-icon">📷</span>
+                            <span class="social-text">Instagram</span>
+                            <div class="social-splash"></div>
+                        </a>
+                        <a href="#" class="social-link tiktok">
+                            <span class="social-icon">🎵</span>
+                            <span class="social-text">TikTok</span>
+                            <div class="social-splash"></div>
+                        </a>
+                        <a href="#" class="social-link youtube">
+                            <span class="social-icon">📺</span>
+                            <span class="social-text">YouTube</span>
+                            <div class="social-splash"></div>
+                        </a>
+                        <a href="#" class="social-link spotify">
+                            <span class="social-icon">🎧</span>
+                            <span class="social-text">Spotify</span>
+                            <div class="social-splash"></div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h3 class="info-title">MANAGEMENT</h3>
+                    <div class="management-info">
+                        <p class="management-text">
+                            <strong>Booking:</strong><br>
+                            booking&#64;tnbydtrix.com<br>
+                            +33 1 23 45 67 89
+                        </p>
+                        <p class="management-text">
+                            <strong>Presse:</strong><br>
+                            presse&#64;tnbydtrix.com<br>
+                            +33 1 98 76 54 32
+                        </p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h3 class="info-title">LABEL</h3>
+                    <div class="label-info">
+                        <div class="label-logo">
+                            <div class="logo-placeholder"></div>
+                        </div>
+                        <p class="label-text">
+                            <strong>Street Records</strong><br>
+                            Le label indépendant<br>
+                            de la nouvelle génération
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="graffiti-wall">
+            <div class="wall-tag" *ngFor="let tag of wallTags" [style.left.px]="tag.x" [style.top.px]="tag.y"
+                [style.transform]="'rotate(' + tag.rotation + 'deg)'" [style.color]="tag.color">
+                {{ tag.text }}
+            </div>
+        </div>
+    </div>
+</section>
