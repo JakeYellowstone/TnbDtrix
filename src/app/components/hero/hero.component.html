@@ -1,0 +1,45 @@
+<section id="home" class="hero-section">
+    <div class="hero-bg">
+        <div class="graffiti-overlay"></div>
+        <div class="concrete-texture"></div>
+    </div>
+
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1 class="hero-title">
+                <span class="title-line">TnbyDtrix</span>
+                <span class="title-subtitle">DRILL ARTIST</span>
+            </h1>
+
+            <p class="hero-slogan">
+                <span class="slogan-word">STREET</span>
+                <span class="slogan-word">VIBES</span>
+                <span class="slogan-word">ETERNAL</span>
+            </p>
+
+            <div class="hero-buttons">
+                <button class="btn-primary splash-btn" (click)="playMusic()">
+                    <span class="btn-text">🎵 LISTEN NOW</span>
+                    <div class="btn-splash"></div>
+                </button>
+
+                <button class="btn-secondary explode-btn" (click)="scrollToAbout()">
+                    <span class="btn-text">💥 DISCOVER</span>
+                    <div class="btn-explosion"></div>
+                </button>
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <div class="artist-frame">
+                <div class="comic-border"></div>
+                <div class="artist-silhouette"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-particles">
+        <div class="particle" *ngFor="let particle of particles" [style.left.px]="particle.x"
+            [style.top.px]="particle.y"></div>
+    </div>
+</section>

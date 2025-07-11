@@ -1,0 +1,82 @@
+<section id="gallery" class="gallery-section">
+    <div class="container mx-auto px-4">
+        <div class="section-header">
+            <h2 class="section-title">GALERIE</h2>
+            <div class="title-underline"></div>
+        </div>
+
+        <div class="gallery-tabs">
+            <button class="tab-btn" [class.active]="activeTab === 'clips'" (click)="setActiveTab('clips')">
+                🎬 CLIPS
+            </button>
+            <button class="tab-btn" [class.active]="activeTab === 'photos'" (click)="setActiveTab('photos')">
+                📸 PHOTOS
+            </button>
+            <button class="tab-btn" [class.active]="activeTab === 'behind'" (click)="setActiveTab('behind')">
+                🎭 COULISSES
+            </button>
+        </div>
+
+        <div class="gallery-content">
+            <!-- Clips Tab -->
+            <div class="clips-grid" *ngIf="activeTab === 'clips'">
+                <div class="clip-card" *ngFor="let clip of clips" (click)="playClip(clip)">
+                    <div class="clip-thumbnail">
+                        <div class="clip-overlay"></div>
+                        <div class="play-button">
+                            <span class="play-icon">▶</span>
+                        </div>
+                        <div class="clip-info">
+                            <h3 class="clip-title">{{ clip.title }}</h3>
+                            <p class="clip-views">{{ clip.views }} vues</p>
+                        </div>
+                    </div>
+                    <div class="clip-border"></div>
+                    <div class="clip-splash"></div>
+                </div>
+            </div>
+
+            <!-- Photos Tab -->
+            <div class="photos-grid" *ngIf="activeTab === 'photos'">
+                <div class="photo-card" *ngFor="let photo of photos; let i = index" (click)="openPhoto(photo, i)">
+                    <div class="photo-frame">
+                        <div class="photo-image" [style.background-image]="'url(' + photo.url + ')'"></div>
+                        <div class="photo-overlay"></div>
+                        <div class="photo-caption">{{ photo.caption }}</div>
+                    </div>
+                    <div class="photo-graffiti"></div>
+                </div>
+            </div>
+
+            <!-- Behind Tab -->
+            <div class="behind-grid" *ngIf="activeTab === 'behind'">
+                <div class="behind-card" *ngFor="let item of behindScenes">
+                    <div class="behind-content">
+                        <div class="behind-image"></div>
+                        <div class="behind-text">
+                            <h3 class="behind-title">{{ item.title }}</h3>
+                            <p class="behind-description">{{ item.description }}</p>
+                            <span class="behind-date">{{ item.date }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Photo Modal -->
+        <div class="photo-modal" *ngIf="selectedPhoto" (click)="closePhoto()">
+            <div class="modal-content" (click)="$event.stopPropagation()">
+                <button class="modal-close" (click)="closePhoto()">✕</button>
+                <div class="modal-image" [style.background-image]="'url(' + selectedPhoto.url + ')'"></div>
+                <div class="modal-info">
+                    <h3 class="modal-title">{{ selectedPhoto.caption }}</h3>
+                    <p class="modal-description">{{ selectedPhoto.description }}</p>
+                </div>
+                <div class="modal-navigation">
+                    <button class="nav-btn prev" (click)="previousPhoto()">‹</button>
+                    <button class="nav-btn next" (click)="nextPhoto()">›</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

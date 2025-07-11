@@ -1,0 +1,61 @@
+<header class="fixed top-0 left-0 w-full z-50 header-container">
+      <div class="header-bg"></div>
+      <div class="header-graffiti"></div>
+      <div class="container mx-auto px-4 py-4">
+        <nav class="flex items-center justify-between">
+          <div class="logo-container">
+            <h1 class="logo-text">
+              <span class="logo-tn">Tn</span><span class="logo-by">by</span><span class="logo-dtrix">Dtrix</span>
+              <div class="logo-underline"></div>
+            </h1>
+          </div>
+        </nav>
+        
+        <div class="mobile-nav-overlay" [class.show]="mobileMenuOpen" (click)="closeMobileMenu()">
+          <div class="mobile-nav" (click)="$event.stopPropagation()">
+            <div class="mobile-nav-header">
+              <h2 class="mobile-nav-title">MENU</h2>
+              <div class="mobile-nav-decoration"></div>
+            </div>
+            <div class="mobile-nav-links">
+              <a href="#home" class="mobile-nav-link" (click)="closeMobileMenu()">
+                <span class="mobile-link-icon">🏠</span>
+                <span class="mobile-link-text">HOME</span>
+                <div class="mobile-link-splash"></div>
+              </a>
+              <a href="#about" class="mobile-nav-link" (click)="closeMobileMenu()">
+                <span class="mobile-link-icon">👤</span>
+                <span class="mobile-link-text">ABOUT</span>
+                <div class="mobile-link-splash"></div>
+              </a>
+              <a href="#music" class="mobile-nav-link" (click)="closeMobileMenu()">
+                <span class="mobile-link-icon">🎵</span>
+                <span class="mobile-link-text">MUSIC</span>
+                <div class="mobile-link-splash"></div>
+              </a>
+              <a href="#events" class="mobile-nav-link" (click)="closeMobileMenu()">
+                <span class="mobile-link-icon">🎤</span>
+                <span class="mobile-link-text">EVENTS</span>
+                <div class="mobile-link-splash"></div>
+              </a>
+              <a href="#gallery" class="mobile-nav-link" (click)="closeMobileMenu()">
+                <span class="mobile-link-icon">📸</span>
+                <span class="mobile-link-text">GALLERY</span>
+                <div class="mobile-link-splash"></div>
+              </a>
+              <a href="#contact" class="mobile-nav-link" (click)="closeMobileMenu()">
+                <span class="mobile-link-icon">📩</span>
+                <span class="mobile-link-text">CONTACT</span>
+                <div class="mobile-link-splash"></div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="header-particles">
+        <div class="particle" *ngFor="let particle of headerParticles" 
+             [style.left.px]="particle.x" 
+             [style.animation-delay]="particle.delay + 's'"></div>
+      </div>
+    </header>

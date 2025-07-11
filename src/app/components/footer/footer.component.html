@@ -1,0 +1,83 @@
+<footer class="footer">
+    <div class="footer-bg">
+        <div class="graffiti-overlay"></div>
+    </div>
+
+    <div class="container mx-auto px-4">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h3 class="logo-text">
+                    <span class="text-red-600">Tn</span>by<span class="text-yellow-400">Dtrix</span>
+                </h3>
+                <p class="logo-subtitle">DRILL ARTIST</p>
+            </div>
+
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4 class="column-title">NAVIGATION</h4>
+                    <a href="#home" class="footer-link">Home</a>
+                    <a href="#about" class="footer-link">About</a>
+                    <a href="#music" class="footer-link">Music</a>
+                    <a href="#events" class="footer-link">Events</a>
+                    <a href="#gallery" class="footer-link">Gallery</a>
+                    <a href="#contact" class="footer-link">Contact</a>
+                </div>
+
+                <div class="link-column">
+                    <h4 class="column-title">STREAMING</h4>
+                    <a href="#" class="footer-link">Spotify</a>
+                    <a href="#" class="footer-link">Apple Music</a>
+                    <a href="#" class="footer-link">Deezer</a>
+                    <a href="#" class="footer-link">YouTube Music</a>
+                    <a href="#" class="footer-link">SoundCloud</a>
+                </div>
+
+                <div class="link-column">
+                    <h4 class="column-title">SOCIAL</h4>
+                    <a href="#" class="footer-link">Instagram</a>
+                    <a href="#" class="footer-link">TikTok</a>
+                    <a href="#" class="footer-link">YouTube</a>
+                    <a href="#" class="footer-link">Twitter</a>
+                    <a href="#" class="footer-link">Facebook</a>
+                </div>
+            </div>
+
+            <div class="footer-newsletter">
+                <h4 class="newsletter-title">NEWSLETTER</h4>
+                <p class="newsletter-text">
+                    Reçois toutes les news, les sorties et les dates de concerts en avant-première.
+                </p>
+                <form class="newsletter-form" (ngSubmit)="subscribeNewsletter()">
+                    <input type="email" placeholder="Ton email..." class="newsletter-input"
+                        [(ngModel)]="newsletterEmail" name="email" required>
+                    <button type="submit" class="newsletter-btn">
+                        <span class="btn-text">S'ABONNER</span>
+                        <div class="btn-explosion"></div>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-tags">
+                <span class="footer-tag" *ngFor="let tag of footerTags">{{ tag }}</span>
+            </div>
+
+            <div class="footer-copyright">
+                <p>&copy; 2025 TnbyDtrix. Tous droits réservés.</p>
+                <p>Développé avec 🔥 par <strong>EilorCi</strong></p>
+            </div>
+
+            <div class="footer-legal">
+                <a href="#" class="legal-link">Mentions légales</a>
+                <a href="#" class="legal-link">Politique de confidentialité</a>
+                <a href="#" class="legal-link">CGU</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-particles">
+        <div class="particle" *ngFor="let particle of particles" [style.left.px]="particle.x"
+            [style.top.px]="particle.y" [style.animation-delay]="particle.delay + 's'"></div>
+    </div>
+</footer>
